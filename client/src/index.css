@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Defaults — overridden at runtime by ThemeProvider based on active festival */
+  --color-primary: #b45309;
+  --color-bg: #fffbeb;
+  --color-ink: #1f2937;
+  --color-muted: #6b7280;
+  --bg-image-url: url('https://images.unsplash.com/photo-1604608672516-f1b9b1d1e1d1?auto=format&fit=crop&w=1920&q=80');
+  --overlay-tone: light;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply font-sans text-ink antialiased;
+    background-color: var(--color-bg);
+  }
+}
+
+@layer components {
+  .surface {
+    @apply bg-white/75 backdrop-blur-md border border-white/40 shadow-lg rounded-2xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium transition;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:opacity-90 active:opacity-80;
+  }
+  .btn-ghost {
+    @apply btn bg-white/60 hover:bg-white/80 text-ink;
+  }
+}
